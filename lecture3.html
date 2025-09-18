@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lecture 3: Nested Lists &amp; Tables</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./lecture1.html"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture2.html"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="80%"></a></td>
+            <th><a href="#"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="70%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+            <td><a href="./lecture4.html"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture5.html"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture6.html"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="80%"></a></td>
+            <td><a href="summary.html"><img src="HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>HTML Advanced structures</h1>
+    <iframe src="https://youtube.com/embed/AJ4E1zf5tQs?si=Oddyj5UJnU0aFgGx" allowfullscreen width="500px"
+        height="280px"></iframe>
+
+    <p>The third lecture covers how to structure complex, hierarchical data using nested lists and HTML tables. 📋</p>
+
+    <hr>
+
+    <h3>Nested Lists</h3>
+    <p>
+        This section explains how to solve the problem of creating lists that have sub-lists.
+    </p>
+    <ul>
+        <li><strong>The Problem:</strong> A simple list can't represent hierarchical data, like a country with a list of
+            its cities.</li>
+        <li><strong>The Solution:</strong> You create a <strong>Nested List</strong> by placing a new
+            <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> tag <em>inside</em> an <code>&lt;li&gt;</code> tag of a
+            parent list. This allows you to create a "list within a list" structure that can be nested to any depth.
+        </li>
+    </ul>
+
+    <iframe src="https://heet-sheth.github.io/Defense/Lecture3/list.html" width="100%" height="800px"></iframe>
+    <hr>
+
+    <h3>HTML Tables</h3>
+    <p>
+        This part covers how to display data in a grid of rows and columns.
+    </p>
+
+    <h4>Basic Structure</h4>
+    <ul>
+        <li><strong>The Problem:</strong> You need to display data in a structured, grid-like format, like a
+            spreadsheet.</li>
+        <li><strong>The Solution:</strong>
+            <ul>
+                <li>You start with the <strong><code>&lt;table&gt;</code></strong> tag to define the table. You can add
+                    a <code>border="1"</code> attribute to make the grid lines visible.</li>
+                <li>You use the <strong><code>&lt;tr&gt;</code> (Table Row)</strong> tag to create each horizontal row.
+                </li>
+                <li>Inside each row, you use the <strong><code>&lt;td&gt;</code> (Table Data)</strong> tag to create
+                    each cell for your data.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Semantic Structure</h4>
+    <ul>
+        <li><strong>The Problem:</strong> The first row of a table often contains headers, and the last row might
+            contain totals or a conclusion. Using regular <code>&lt;td&gt;</code> tags for these doesn't convey their
+            special meaning.</li>
+        <li><strong>The Solution:</strong>
+            <ul>
+                <li>Use the <strong><code>&lt;th&gt;</code> (Table Header)</strong> tag for header cells to give them
+                    semantic importance.</li>
+                <li>Organize the table into logical sections for professional and readable code:
+                    <strong><code>&lt;thead&gt;</code></strong> for the header,
+                    <strong><code>&lt;tbody&gt;</code></strong> for the main data, and
+                    <strong><code>&lt;tfoot&gt;</code></strong> for the footer or summary row.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Advanced Features: Merging Cells</h4>
+    <ul>
+        <li><strong>The Problem:</strong> Sometimes a single cell needs to stretch across multiple columns or rows.</li>
+        <li><strong>The Solution:</strong>
+            <ul>
+                <li><strong><code>colspan</code></strong>: An attribute you add to a <code>&lt;th&gt;</code> or
+                    <code>&lt;td&gt;</code> to make it span horizontally across multiple columns.
+                </li>
+                <li><strong><code>rowspan</code></strong>: An attribute that makes a cell span vertically across
+                    multiple rows.</li>
+            </ul>
+        </li>
+    </ul>
+    <iframe src="https://heet-sheth.github.io/Defense/Lecture3/Table.html" width="100%" height="400px"></iframe>
+    <hr>
+    <a href="lecture2.html">&#9664;</a>
+    <a href="lecture4.html">&#9654;</a>
+    <hr>
+    <p>Sources: Internet. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+</body>
+
+</html>

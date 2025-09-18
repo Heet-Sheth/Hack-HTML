@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 6: Media, Multi-Page Sites & Deployment</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./lecture1.html"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture2.html"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture3.html"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture4.html"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture5.html"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="80%"></a></td>
+            <th><a href="#"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="70%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+            <td><a href="summary.html"><img src="HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a></td>
+        </tr>
+    </table>
+    <hr>
+    <h3>The Problem of Embedding Media ⏯️</h3>
+    <p>
+        A modern webpage needs more than just text and images. We often need to include audio and video directly on the
+        page. HTML5 provides native tags for this, so we don't have to rely on external plugins.
+    </p>
+
+    <h4>The &lt;audio&gt; Tag</h4>
+    <p>
+        <strong>Problem:</strong> How do we embed a playable audio file with controls? <br>
+        <strong>Solution:</strong> Use the <code>&lt;audio&gt;</code> tag with the <code>controls</code> attribute. The
+        best practice is to nest <code>&lt;source&gt;</code> tags inside to provide multiple file formats as fallbacks
+        for different browsers.
+    </p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;audio controls&gt;
+    &lt;source src="song.mp3" type="audio/mpeg"&gt;
+    &lt;source src="song.ogg" type="audio/ogg"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+    <p><strong>Example (placeholder file, controls are visible):</strong></p>
+    <audio controls>
+        <source src="wavy.mp3" type="audio/mpeg">
+        <source src="song.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h4>The &lt;video&gt; Tag</h4>
+    <p>
+        <strong>Problem:</strong> How do we embed a video file with controls and a set size?<br>
+        <strong>Solution:</strong> Use the <code>&lt;video&gt;</code> tag. It works just like the audio tag and also
+        supports the <code>height</code>, <code>width</code>, and <code>poster</code> (for a thumbnail) attributes.
+    </p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;video controls width="300" poster="thumbnail.jpg"&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.webm" type="video/webm"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+    <p><strong>Example (placeholder file, controls are visible):</strong></p>
+    <video controls width="300" poster="https://via.placeholder.com/300x169.png?text=Video+Thumbnail">
+        <source src="videoplayback.mp4" type="video/mp4">
+        <source src="movie.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+    <h4>The &lt;iframe&gt; Tag for External Content</h4>
+    <p>
+        <strong>Problem:</strong> How do we embed content from another website, like a YouTube video?<br>
+        <strong>Solution:</strong> Use the <code>&lt;iframe&gt;</code> tag. For YouTube, you must use the special
+        <code>/embed/</code> URL format.
+    </p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/VbABSAm1a4A" 
+    title="YouTube video player" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+    <strong>Example:</strong> The video we all started loving and knew Rohit Negi for...
+    <br>
+    <br>
+    <iframe width="560" height="315" src="https://youtube.com/embed/oxp0Gojn3p8?si=cW5kt0z8eg2yBvs7"
+        allowfullscreen></iframe>
+
+    <hr>
+
+    <h3>The Problem of Building a Multi-Page Website</h3>
+    <p>
+        <strong>Problem:</strong> Most websites have multiple pages (Home, About, Contact). How do we create these pages
+        and link them together?<br>
+        <strong>Solution:</strong> Create separate HTML files for each page and use the anchor <code>&lt;a&gt;</code>
+        tag to create navigation links between them. A consistent navigation bar is often placed in the
+        <code>&lt;header&gt;</code> of each page.
+    </p>
+    <p><strong>Code for a Navigation Menu:</strong></p>
+    <pre><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;a href="./index.html"&gt;Home&lt;/a&gt;
+        &lt;a href="./about.html"&gt;About Us&lt;/a&gt;
+        &lt;a href="./contact.html"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+    <p><strong>Example (these links assume other files exist):</strong></p>
+    <header>
+        <nav>
+            <a href="#">Home</a> |
+            <a href="#">About Us</a> |
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <h3>The Problem of Special Characters (HTML Entities)</h3>
+    <p>
+        <strong>Problem:</strong> How do you display characters that have a special meaning in HTML, like
+        <code>&lt;</code>, or symbols not on the keyboard, like ©?<br>
+        <strong>Solution:</strong> Use HTML Entities, which are special codes that the browser displays as symbols.
+    </p>
+    <p><strong>Code and Examples:</strong></p>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>To Display</th>
+                <th>Write This Code</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Less-than sign</td>
+                <td><code>&amp;lt;</code></td>
+                <td>&lt;</td>
+            </tr>
+            <tr>
+                <td>Greater-than sign</td>
+                <td><code>&amp;gt;</code></td>
+                <td>&gt;</td>
+            </tr>
+            <tr>
+                <td>Copyright symbol</td>
+                <td><code>&amp;copy;</code></td>
+                <td>&copy;</td>
+            </tr>
+            <tr>
+                <td>An extra space</td>
+                <td><code>&amp;nbsp;</code></td>
+                <td>One&nbsp;&nbsp;&nbsp;Space</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h3>The Problem of Making Your Website Public 🚀</h3>
+    <p>
+        <strong>Problem:</strong> Your website works on your computer, but how do you make it live on the internet for
+        anyone to see?<br>
+        <strong>Solution:</strong> Deployment. You upload your project folder to a hosting service like Netlify.
+    </p>
+    <h4>The Netlify Drop Process:</h4>
+    <ol>
+        <li>Create a free account on Netlify.</li>
+        <li>Go to the "Sites" section.</li>
+        <li>Drag your entire project folder (the one containing <code>index.html</code>) into the drag-and-drop area.
+        </li>
+        <li>Netlify will upload your files and give you a live, public URL for your website.</li>
+    </ol>
+    <hr>
+    <a href="lecture5.html">&#9664;</a>
+    <a href="summary.html">&#9654;</a>
+    <hr>
+    <p>Sources: Internet. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+</body>
+
+</html>

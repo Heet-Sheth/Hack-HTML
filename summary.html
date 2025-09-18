@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coder Army - Web Development Course Summary (Lectures 1-6)</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./lecture1.html"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture2.html"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture3.html"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture4.html"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture5.html"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture6.html"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="80%"></a></td>
+            <th><a href="#"><img src="./HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+        </tr>
+    </table>
+    <hr>
+
+    <h1>Web Development Course Summary (Lectures 1-6)</h1>
+    <p>A complete summary of the foundational concepts covered in the first six lectures of the Coder Army web
+        development course.</p>
+
+    <hr>
+
+    <h2>Lecture 1: Internet &amp; Web Development Fundamentals</h2>
+    <h3>Core Problem: Communication Between Devices</h3>
+    <ul>
+        <li>The internet exists to solve the fundamental problem of sharing information between different computers.
+        </li>
+        <li>This evolved from physical transfer (pen drives) to a global "network of networks."</li>
+    </ul>
+    <h3>Key Components &amp; Identifiers</h3>
+    <ul>
+        <li><strong>IP Address (The "Where To" Address):</strong> A unique numerical address for a device on the
+            internet.
+            <blockquote>This includes understanding the difference between the older <strong>IPv4</strong> (which has
+                run out of addresses) and the modern <strong>IPv6</strong>, as well as the distinction between a
+                <strong>Public IP</strong> (your router's global address) and a <strong>Private IP</strong> (your
+                device's local address).
+            </blockquote>
+        </li>
+        <li><strong>MAC Address (The "Who Exactly" Address):</strong> A permanent, physical hardware address that solves
+            the security problem of temporary, reassigned IP addresses.</li>
+        <li><strong>Port Number (The "Which App" Address):</strong> An identifier for a specific application or process
+            on a device, ensuring data from Instagram goes to the Instagram tab, not the YouTube tab.</li>
+        <li><strong>DNS (Domain Name System):</strong> The "phonebook of the internet." It solves the problem of humans
+            not being able to remember IP addresses by translating human-friendly domain names (like
+            <code>google.com</code>) into computer-friendly IP addresses.
+        </li>
+    </ul>
+    <h3>Security &amp; Web Development Basics</h3>
+    <ul>
+        <li><strong>HTTP vs. HTTPS:</strong> Solves the problem of insecure data transfer. <strong>HTTP</strong> sends
+            data in plain text, while <strong>HTTPS</strong> encrypts it for security.</li>
+        <li><strong>Client-Server Model:</strong> The fundamental architecture of the web, where a
+            <strong>Client</strong> (your browser) requests information and a <strong>Server</strong> provides it.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Lecture 2: Core HTML Concepts</h2>
+    <h3>Core Problem: Giving Structure to Plain Text</h3>
+    <ul>
+        <li>A web browser doesn't understand the intended structure of plain text. HTML (HyperText Markup Language) was
+            created to solve this.</li>
+        <li><strong>HyperText:</strong> Refers to the ability to create links, connecting pages into a "web."</li>
+        <li><strong>Markup:</strong> Refers to using "tags" to define the meaning and structure of content.</li>
+    </ul>
+    <h3>Essential HTML Tags</h3>
+    <ul>
+        <li><strong>Headings (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>):</strong> To create a semantic
+            hierarchy of titles and subtitles. <code>&lt;h1&gt;</code> is the most important and should only be used
+            once per page.</li>
+        <li><strong>Paragraph (<code>&lt;p&gt;</code>):</strong> To structure blocks of text.</li>
+        <li><strong>Lists (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>):</strong> For
+            creating unordered (bulleted) and ordered (numbered) lists.</li>
+        <li><strong>Anchor/Link (<code>&lt;a&gt;</code>):</strong> The core of "HyperText." Creates clickable links
+            using the <code>href</code> attribute.</li>
+        <li><strong>Image (<code>&lt;img&gt;</code>):</strong> To embed images. The <code>src</code> attribute points to
+            the image file, and the <code>alt</code> attribute provides essential alternative text for accessibility.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Lecture 3: Nested Lists &amp; HTML Tables</h2>
+    <h3>Core Problem: Structuring Complex Data</h3>
+    <ul>
+        <li>How do we represent hierarchical data (a list within a list) or grid-based data (like a spreadsheet)?</li>
+    </ul>
+    <h3>Solutions</h3>
+    <ul>
+        <li><strong>Nested Lists:</strong> Solves the hierarchy problem by placing a new <code>&lt;ul&gt;</code> or
+            <code>&lt;ol&gt;</code> tag <em>inside</em> an <code>&lt;li&gt;</code> tag of a parent list.
+        </li>
+        <li><strong>HTML Tables:</strong> Solves the grid problem.
+            <blockquote>
+                <ul>
+                    <li><strong>Basic Structure:</strong> Built with <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>
+                        (table row), and <code>&lt;td&gt;</code> (table data cell).</li>
+                    <li><strong>Semantic Structure:</strong> Use <code>&lt;th&gt;</code> for header cells, and group
+                        rows with <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;tfoot&gt;</code>
+                        for better meaning.</li>
+                    <li><strong>Advanced Features:</strong> Merge cells using the <code>colspan</code> and
+                        <code>rowspan</code> attributes.
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Lecture 4: File Paths, Boilerplate &amp; Page Structure</h2>
+    <h3>Core Problem: Linking Local Files &amp; Standardizing Code</h3>
+    <ul>
+        <li><strong>File Paths:</strong> Solves the problem of linking to local assets like images.
+            <blockquote><strong>Relative paths</strong> (e.g., <code>./images/pic.jpg</code>) are used for files within
+                the project, while local <strong>absolute paths</strong> (e.g., <code>C:/Users/...</code>) are blocked
+                by browsers for security.</blockquote>
+        </li>
+        <li><strong>HTML Boilerplate:</strong> Solves the problem of browsers having to "guess" how to render your code.
+            The boilerplate provides a standard, professional structure that ensures consistency.</li>
+        <li><strong>Grouping &amp; Selecting:</strong> Solves the problem of applying styles or logic to specific
+            elements.
+            <blockquote>
+                <ul>
+                    <li><strong><code>&lt;div&gt;</code>:</strong> A generic container for grouping elements.</li>
+                    <li><strong><code>class</code>:</strong> A reusable label to group multiple, non-adjacent elements.
+                    </li>
+                    <li><strong><code>id</code>:</strong> A unique identifier to target one specific element.</li>
+                </ul>
+            </blockquote>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Lecture 5: HTML Forms</h2>
+    <h3>Core Problem: Collecting Information from the User</h3>
+    <ul>
+        <li>Forms are the solution for gathering user data, from simple logins to complex registrations.</li>
+    </ul>
+    <h3>Key Form Concepts</h3>
+    <ul>
+        <li><strong><code>&lt;form&gt;</code>:</strong> The main container for all input fields.</li>
+        <li><strong><code>&lt;label&gt;</code> and <code>&lt;input&gt;</code>:</strong> The label describes the input.
+            They are linked using the <code>for</code> and <code>id</code> attributes for better usability.</li>
+        <li><strong>The `name` Attribute:</strong> Crucial for sending data to a server. Data is sent as
+            <strong>name-value pairs</strong>, allowing the server to understand what each piece of data represents.
+        </li>
+        <li><strong>Essential Input Types:</strong>
+            <blockquote><code>type="text"</code>, <code>type="password"</code>, <code>type="number"</code>,
+                <code>type="radio"</code> (for selecting one option), <code>type="checkbox"</code> (for selecting many),
+                <code>type="file"</code>, and <code>type="date"</code>.
+            </blockquote>
+        </li>
+        <li><strong>Other Elements:</strong> <code>&lt;textarea&gt;</code> for multi-line text and
+            <code>&lt;select&gt;</code> for dropdown menus.
+        </li>
+        <li><strong>Attributes:</strong> <code>placeholder</code> provides a hint inside the input field, and
+            <code>required</code> makes a field mandatory.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Lecture 6: Media, Semantics &amp; Deployment</h2>
+    <h3>Core Problem: Adding Richer Content &amp; Making a Site Public</h3>
+    <ul>
+        <li><strong>Media Tags:</strong> Solves the problem of embedding non-text content.
+            <blockquote>
+                <ul>
+                    <li><strong><code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>:</strong> For embedding local
+                        media files. Always use the <code>controls</code> attribute.</li>
+                    <li><strong><code>&lt;iframe&gt;</code>:</strong> For embedding content from external websites, like
+                        YouTube videos.</li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Semantic HTML:</strong> Solves the problem of a meaningless structure made only of
+            <code>&lt;div&gt;</code>s. Tags like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+            <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, etc., give the page a logical structure that is
+            better for accessibility and SEO.
+        </li>
+        <li><strong>HTML Entities:</strong> Solves the problem of displaying special characters (e.g., using
+            <code>&amp;copy;</code> to show ©).
+        </li>
+        <li><strong>Deployment:</strong> Solves the problem of making your local website accessible to the world.
+            <blockquote>This is done by uploading your project folder to a hosting service like
+                <strong>Netlify</strong>, which provides a live, public URL.
+            </blockquote>
+        </li>
+    </ul>
+    <hr>
+    <a href="lecture6.html">&#9664;</a>
+    <hr>
+    <p>Sources: Internet. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+</body>
+
+</html>

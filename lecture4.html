@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lecture 4: File Paths &amp; HTML Structure</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./lecture1.html"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture2.html"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture3.html"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="80%"></a></td>
+            <th><a href="#"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="70%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+            <td><a href="./lecture5.html"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture6.html"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="80%"></a></td>
+            <td><a href="summary.html"><img src="HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>The hidden part of html</h1>
+    <iframe src="https://youtube.com/embed/k78lNSAB8VY?si=ZWOWx2OPFVHQ2ISS" allowfullscreen width="600px"
+        height="300px"></iframe>
+    <hr>
+
+    <h3>The Problem of Locating Your Own Files</h3>
+    <p>
+        So far, we have only used images by linking to them from other websites (e.g., using a full
+        <code>https://...</code> URL). But this raises a fundamental question:
+    </p>
+    <ul>
+        <li><strong>The "Why":</strong> What if the image I want to use isn't on the web, but is located on my own
+            computer, inside my project folder? How do I tell the browser where to find a local file?</li>
+        <li><strong>The Solution:</strong> We need a way to describe the location of a file, which is known as a
+            <strong><a href="https://www.w3schools.com/html/html_filepaths.asp">File Path</a></strong>. There are two
+            distinct ways to do this.
+        </li>
+    </ul>
+
+    <h4>Relative vs. Absolute Paths</h4>
+    <p>
+        Imagine you are in Dwarka, Delhi, and need to give someone directions to Chandni Chowk. You have two ways to do
+        it:
+    </p>
+    <ol>
+        <li><strong>Relative Path:</strong> You give directions from your current location. "From here, go to CP, then
+            from CP, go to Vikas Puri, and from there you'll reach Chandni Chowk." This path is
+            <strong>relative</strong> to where you are right now.
+        </li>
+        <li><strong>Absolute Path:</strong> You give directions from a universal starting point. "Go to Planet Earth,
+            find the country India, then the city New Delhi, and inside it, find Chandni Chowk." This path is
+            <strong>absolute</strong> because it starts from the ultimate root.
+        </li>
+    </ol>
+    <img src="./paths.png" alt="HTML file paths" width="600px">
+    <p>This same logic applies to files in our project:</p>
+    <ul>
+        <li>
+            <strong>Relative Path:</strong> This is the most common method. It describes the path to a file <em>from the
+                location of the current file</em>.
+            <ul>
+                <li><strong>Going Down into a Folder:</strong> Use the folder name followed by a forward slash
+                    (<code>/</code>).
+                    <ul>
+                        <li><em>Example:</em> To get <code>cow.jpg</code> from inside the <code>beta</code> folder, the
+                            path is <code>beta/cow.jpg</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Going Up out of a Folder:</strong> Use two dots and a slash (<code>../</code>). This moves
+                    you to the parent directory.
+                    <ul>
+                        <li><em>Example:</em> To get <code>cat.png</code> which is one level above the current file, the
+                            path is <code>../cat.png</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Staying in the Current Directory (Best Practice):</strong> Use a single dot and a slash
+                    (<code>./</code>). While simply writing the filename (<code>dog.jpg</code>) works, explicitly
+                    writing <code>./dog.jpg</code> is a clearer, recommended practice that signifies the file is in the
+                    same directory.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Absolute Path:</strong> This describes the path from the absolute root of a file system.
+            <ul>
+                <li><strong>On the Web:</strong> A full URL like <code>https://some-website.com/image.jpg</code> is an
+                    absolute path.</li>
+                <li><strong>On Your Computer:</strong> This is the full path from the root drive, like
+                    <code>C:/Users/YourName/image.jpg</code> on Windows or <code>/Users/YourName/image.jpg</code> on
+                    macOS/Linux.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>The Security Risk of Local Absolute Paths</h4>
+    <img src="pathsSecurity.png" alt="Browsers blocking..." width="600px">
+    <ul>
+        <li><strong>The "Why":</strong> If a browser allowed a webpage to use an absolute path to your local files
+            (e.g., <code>&lt;img src="C:/Users/YourName/private-photo.jpg"&gt;</code>), what could go wrong?</li>
+        <li><strong>The Danger:</strong> A malicious website could send you an HTML file that tries to access your
+            private, sensitive files. If the browser allowed this, the code could read your personal data and
+            potentially send it back to a hacker's server without your permission.</li>
+        <li><strong>The Solution:</strong> For security, browsers <strong>block</strong> any attempt by a webpage to
+            access your local file system using absolute paths. Similarly, you cannot use relative paths
+            (<code>../</code>) to navigate <em>outside</em> of your project's root folder. The browser creates a
+            "sandbox" to protect your computer.</li>
+    </ul>
+
+    <hr>
+
+    <h3>The Problem of a Standard Web Page Structure</h3>
+    <p>We've seen that writing <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> in a file works. So why do we need all the extra
+        "boilerplate" code that professional developers use?</p>
+    <ul>
+        <li><strong>The "Why":</strong> If we don't provide a standard structure, the browser has to
+            <strong>guess</strong> what we mean. It might assume we're using an older version of HTML, which can cause
+            unexpected bugs, especially when CSS and JavaScript are added. It also harms our site's ranking in search
+            engines (SEO).
+        </li>
+        <li><strong>The Solution:</strong> The <strong>HTML Boilerplate</strong>. This is a standard template that
+            explicitly tells the browser exactly how to interpret our document, leaving no room for guesswork.</li>
+    </ul>
+
+    <img src="./boilerplate.png" alt="The standard HTML boilerplate." width="600px">
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <ul>
+        <li><strong><code>&lt;!DOCTYPE html&gt;</code>:</strong> This is the very first line and it declares that the
+            document is an <strong>HTML5</strong> document.</li>
+        <li><strong><code>&lt;html lang="en"&gt;</code>:</strong> This is the root element that wraps everything. The
+            <code>lang="en"</code> attribute specifies that the page's primary language is English, which is important
+            for accessibility and SEO.
+        </li>
+        <li><strong><code>&lt;head&gt;</code>:</strong> This section contains meta-information about the page. The
+            content here is <strong>not displayed</strong> in the main browser window.
+            <ul>
+                <li><strong><code>&lt;meta charset="UTF-8"&gt;</code>:</strong> This is crucial. Computers only
+                    understand numbers (specifically, binary). This tag specifies the character encoding standard
+                    (<strong>UTF-8</strong>) that maps every character, symbol, and emoji from every language in the
+                    world to a unique number, allowing the browser to store and display it correctly.</li>
+                <li><strong><code>&lt;meta name="viewport"...&gt;</code>:</strong> This tag is essential for responsive
+                    design. It tells the browser to set the page width to the screen width of the device it's being
+                    viewed on (like a phone or tablet), ensuring the content scales correctly.</li>
+                <li><strong><code>&lt;title&gt;</code>:</strong> This sets the text that appears in the browser tab,
+                    helping users identify the page.</li>
+            </ul>
+        </li>
+        <li><strong><code>&lt;body&gt;</code>:</strong> This section contains all the <strong>visible content</strong>
+            of your webpage, like headings, paragraphs, images, and links.</li>
+    </ul>
+
+    <hr>
+
+    <h3>The Problem of Grouping and Selecting Elements</h3>
+    <p>
+        As pages get more complex, we run into new problems: How do we apply one style to a whole group of elements? And
+        how do we target one very specific element and nothing else?
+    </p>
+    <ul>
+        <li><strong>The "Why":</strong> Applying styles one-by-one to every single element is repetitive and
+            inefficient. We need a way to group elements together logically.</li>
+        <li><strong>The Solutions:</strong>
+            <a href="https://www.geeksforgeeks.org/css/css-selectors/">selectors</a>
+            <br>
+            <a href="https://x.com/HeetSheth15/status/1963692341799321612"><img src="./lecture4post.png"
+                    alt="x post for lecture 4." width="600px"></a>
+
+            <h4>1. <code>&lt;div&gt;</code> (The Container)</h4>
+            <ul>
+                <li><strong>The Problem:</strong> How do you group multiple elements (like several headings and
+                    paragraphs in a login form) into a single block so you can move or style them all at once?</li>
+                <li><strong>The Solution:</strong> The <strong><code>&lt;div&gt;</code></strong> tag. It's an invisible
+                    container used purely for grouping other elements. By applying a style (like
+                    <code>text-align: center</code>) to the <code>&lt;div&gt;</code>, you apply it to everything inside,
+                    saving you from styling each element individually.
+                </li>
+            </ul>
+            <h4>2. The <code>class</code> Attribute (The Grouping Label)</h4>
+            <ul>
+                <li><strong>The Problem:</strong> What if you want to apply the same style to multiple elements that are
+                    <em>not</em> next to each other and can't be wrapped in a single <code>&lt;div&gt;</code>?
+                </li>
+                <li><strong>The Solution:</strong> The <strong><code>class</code></strong> attribute. You can assign the
+                    same class name to multiple, separate elements. This creates a "group" that can be targeted with
+                    CSS. <strong>Class names are reusable</strong> and can be applied to many elements.</li>
+            </ul>
+            <h4>3. The <code>id</code> Attribute (The Unique Identifier)</h4>
+            <ul>
+                <li><strong>The Problem:</strong> How do you target one single, specific element on a page, and nothing
+                    else?</li>
+                <li><strong>The Solution:</strong> The <strong><code>id</code></strong> attribute. An ID must be
+                    <strong>completely unique</strong> on the entire page. No two elements can have the same ID. It is
+                    used to pinpoint a single element, often for manipulation with JavaScript.
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <a href="lecture3.html">&#9664;</a>
+    <a href="lecture5.html">&#9654;</a>
+    <hr>
+    <p>Sources: Internet. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+</body>
+
+</html>

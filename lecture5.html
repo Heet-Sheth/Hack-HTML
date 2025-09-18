@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 5: HTML Forms</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./lecture1.html"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture2.html"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture3.html"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture4.html"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="80%"></a></td>
+            <th><a href="#"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="70%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+            <td><a href="./lecture6.html"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="80%"></a></td>
+            <td><a href="summary.html"><img src="HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>FORMS</h1>
+    <iframe src="https://youtube.com/embed/a4j9R_DvZ8M?si=nx2ECf3t3cxdbmEK" allowfullscreen width="600px"
+        height="400px"></iframe>
+    <iframe src="https://heet-sheth.github.io/Defense/Lecture5/index.html" width="100%" height="400px"></iframe>
+    <p><a href="https://heet-sheth.github.io/Defense/Lecture5/index.html" target="_blank">&#x26F6;</a></p>
+
+    <h3>The Problem: How to Collect User Information</h3>
+    <p>
+        Websites are not just for displaying content; they are interactive. A fundamental need is to <strong>collect
+            information from the user</strong>. This is used everywhere, from complex job applications to the simple
+        login and signup pages you use daily.
+    </p>
+    <p>
+        <strong>The "Why":</strong> How can we create a structured way for users to enter their data (like name, email,
+        and password) and send it to our server to be stored in a database?
+    </p>
+    <p>
+        <strong>The Solution:</strong> The <strong><code>&lt;form&gt;</code></strong> element. This tag acts as a
+        container for all the different input fields that make up a form.
+    </p>
+
+    <hr>
+
+    <h3>The Building Blocks of a Form</h3>
+
+    <h4>1. The Text Input &amp; Label</h4>
+    <p>
+        <strong>The Problem:</strong> An input box by itself is meaningless. How does a user know what information to
+        enter? Furthermore, how do we ensure the text label is functionally linked to its input box for better
+        accessibility and usability?
+    </p>
+    <p>
+        <strong>The Solution:</strong> We use the <strong><code>&lt;input type="text"&gt;</code></strong> for the entry
+        field and a <strong><code>&lt;label&gt;</code></strong> tag to describe it. We link them by giving the input a
+        unique <strong><code>id</code></strong> and matching it with the label's <strong><code>for</code></strong>
+        attribute. Now, clicking the label will focus on the input field.
+    </p>
+
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="username"&gt;Username:&lt;/label&gt;
+&lt;input type="text" id="username" name="username" placeholder="Enter your username"&gt;</code></pre>
+
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+    </form>
+
+    <h4>2. The `name` Attribute (The Data Key)</h4>
+    <p>
+        <strong>The Problem:</strong> When a form is submitted, the server receives a list of values (e.g., "Rohit",
+        "28"). How does the server know which value corresponds to which field, especially if some fields are left
+        blank?
+    </p>
+    <p>
+        <strong>The Solution:</strong> Every input must have a <strong><code>name</code></strong> attribute. This acts
+        as a key for the data. The browser sends the information as <strong>name-value pairs</strong> (e.g.,
+        <code>username=Rohit</code>), allowing the server to understand and correctly store the data.
+    </p>
+
+    <hr>
+
+    <h3>Common Input Types</h3>
+
+    <h4>Number Input</h4>
+    <p><strong>Problem:</strong> How to ensure a user enters only numbers?</p>
+    <p><strong>Solution:</strong> Use <strong><code>&lt;input type="number"&gt;</code></strong>. This provides
+        validation and stepper arrows.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="age"&gt;Age:&lt;/label&gt;
+&lt;input type="number" id="age" name="user_age" placeholder="e.g., 28"&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="user_age" placeholder="e.g., 28">
+    </form>
+
+    <h4>Password Input</h4>
+    <p><strong>Problem:</strong> How to hide sensitive information as a user types it?</p>
+    <p><strong>Solution:</strong> Use <strong><code>&lt;input type="password"&gt;</code></strong>, which masks the input
+        characters.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="pass"&gt;Password:&lt;/label&gt;
+&lt;input type="password" id="pass" name="user_pass" placeholder="Enter your password"&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="user_pass" placeholder="Enter your password">
+    </form>
+
+    <h4>Radio Buttons (Choose One)</h4>
+    <p><strong>Problem:</strong> How to let a user choose only <strong>one</strong> option from a group (e.g., gender)?
+    </p>
+    <p><strong>Solution:</strong> Use <strong><code>&lt;input type="radio"&gt;</code></strong>. To group them, all radio
+        buttons in the group must have the same <code>name</code> attribute. The <strong><code>value</code></strong>
+        attribute is essential to define what data is sent to the server.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;p&gt;Gender:&lt;/p&gt;
+&lt;input type="radio" id="male" name="gender" value="male"&gt;
+&lt;label for="male"&gt;Male&lt;/label&gt;
+&lt;br&gt;
+&lt;input type="radio" id="female" name="gender" value="female"&gt;
+&lt;label for="female"&gt;Female&lt;/label&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <p>Gender:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+    </form>
+
+    <h4>Checkboxes (Choose Many)</h4>
+    <p><strong>Problem:</strong> How to let a user select <strong>zero, one, or multiple</strong> options from a list?
+    </p>
+    <p><strong>Solution:</strong> Use <strong><code>&lt;input type="checkbox"&gt;</code></strong>. Like radio buttons,
+        the <strong><code>value</code></strong> attribute is crucial for sending meaningful data.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;p&gt;Select Subjects:&lt;/p&gt;
+&lt;input type="checkbox" id="python" name="subject" value="python"&gt;
+&lt;label for="python"&gt;Python&lt;/label&gt;
+&lt;br&gt;
+&lt;input type="checkbox" id="javascript" name="subject" value="javascript"&gt;
+&lt;label for="javascript"&gt;JavaScript&lt;/label&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <p>Select Subjects:</p>
+        <input type="checkbox" id="python" name="subject" value="python">
+        <label for="python">Python</label>
+        <br>
+        <input type="checkbox" id="javascript" name="subject" value="javascript">
+        <label for="javascript">JavaScript</label>
+    </form>
+
+    <hr>
+
+    <h3>More Form Elements</h3>
+
+    <h4>Text Area (Multi-line Input)</h4>
+    <p><strong>Problem:</strong> How to collect long-form, multi-line text like a comment or address?</p>
+    <p><strong>Solution:</strong> Use the <strong><code>&lt;textarea&gt;</code></strong> element, which provides a
+        larger, resizable text box.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="address"&gt;Mailing Address:&lt;/label&gt;
+&lt;br&gt;
+&lt;textarea id="address" name="user_address" rows="4" cols="30" placeholder="Enter your full address..."&gt;&lt;/textarea&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="address">Mailing Address:</label>
+        <br>
+        <textarea id="address" name="user_address" rows="4" cols="30"
+            placeholder="Enter your full address..."></textarea>
+    </form>
+
+    <h4>Dropdown Select</h4>
+    <p><strong>Problem:</strong> How to present a long list of options in a compact way?</p>
+    <p><strong>Solution:</strong> Use the <strong><code>&lt;select&gt;</code></strong> element as a container, with each
+        choice defined by an <strong><code>&lt;option&gt;</code></strong> tag inside it. A disabled first option can
+        serve as a placeholder.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="course"&gt;Select your course:&lt;/label&gt;
+&lt;select name="course" id="course"&gt;
+    &lt;option value="" disabled selected&gt;--Please choose an option--&lt;/option&gt;
+    &lt;option value="cse"&gt;Computer Science&lt;/option&gt;
+    &lt;option value="mech"&gt;Mechanical Engineering&lt;/option&gt;
+    &lt;option value="civil"&gt;Civil Engineering&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="course">Select your course:</label>
+        <select name="course" id="course">
+            <option value="" disabled selected>--Please choose an option--</option>
+            <option value="cse">Computer Science</option>
+            <option value="mech">Mechanical Engineering</option>
+            <option value="civil">Civil Engineering</option>
+        </select>
+    </form>
+
+    <hr>
+
+    <h3>Form Actions & Validation</h3>
+
+    <h4>Buttons</h4>
+    <p><strong>Problem:</strong> How does a user submit the form after filling it out, or clear all the fields?</p>
+    <p><strong>Solution:</strong> Use the <strong><code>&lt;button&gt;</code></strong> tag with a specified
+        <code>type</code>.
+    <ul>
+        <li><strong><code>type="submit"</code></strong>: Submits the form data.</li>
+        <li><strong><code>type="reset"</code></strong>: Clears all form fields to their initial values.</li>
+    </ul>
+    </p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;button type="submit"&gt;Register&lt;/button&gt;
+&lt;button type="reset"&gt;Clear Form&lt;/button&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="test_name">Name:</label>
+        <input type="text" id="test_name" name="test_name" placeholder="Enter your name"><br><br>
+        <button type="submit">Register</button>
+        <button type="reset">Clear Form</button>
+    </form>
+
+    <h4>Placeholder</h4>
+    <p><strong>Problem:</strong> How to provide a hint or an example of what to type directly inside an input field?</p>
+    <p><strong>Solution:</strong> Use the <strong><code>placeholder</code></strong> attribute.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="fname"&gt;First Name:&lt;/label&gt;
+&lt;input type="text" id="fname" name="first_name" placeholder="e.g., Arjun"&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="first_name" placeholder="e.g., Arjun">
+    </form>
+
+    <h4>Required Fields</h4>
+    <p><strong>Problem:</strong> How to prevent a user from submitting a form if a critical field is left empty?</p>
+    <p><strong>Solution:</strong> Add the <strong><code>required</code></strong> attribute to the input tag. This
+        enables built-in browser validation.</p>
+    <p><strong>Code:</strong></p>
+    <pre><code>&lt;label for="req_email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="req_email" name="user_email" placeholder="you@example.com" required&gt;</code></pre>
+    <p><strong>Example:</strong></p>
+    <form>
+        <label for="req_email">Email:</label>
+        <input type="email" id="req_email" name="user_email" placeholder="you@example.com" required>
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
+    <a href="lecture4.html">&#9664;</a>
+    <a href="lecture6.html">&#9654;</a>
+    <hr>
+    <p>Sources: Internet. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+
+</body>
+
+</html>

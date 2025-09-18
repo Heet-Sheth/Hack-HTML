@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lecture 2: Core HTML Concepts</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./lecture1.html"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="80%"></a></td>
+            <th><a href="#"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="70%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+            <td><a href="./lecture3.html"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture4.html"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture5.html"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture6.html"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="80%"></a></td>
+            <td><a href="summary.html"><img src="HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>INTRO TO <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></h1>
+    <iframe src="https://youtube.com/embed/GkZN_-HMCJ8?si=tbuWnuBnDANd8Xfr" allowfullscreen width="800px"
+        height="500px"></iframe>
+    <br>
+    <hr>
+    <img src="./HTML5_logo_and_wordmark.svg" alt="HTML 5" width="300px">
+
+    <h3>The Problem of Creating a Web Page</h3>
+    <p>
+        We know a server sends files to a client, but what is the fundamental nature of these files? How do we write a
+        document that a web browser can understand, not just as plain text, but as a structured page with links,
+        headings, and paragraphs?
+    </p>
+    <ul>
+        <li>
+            <strong>The HyperText Problem:</strong> The first websites were text documents with a key feature: the
+            ability to link to other documents. In an era without search bars, the primary challenge was navigation:
+            <strong>how do you get from one document to another?</strong>.
+            <ul>
+                <li><strong>Solution (Hyperlinks):</strong> The concept of <strong>HyperText</strong> was created,
+                    referring to text that contains special, clickable links (<strong><a
+                            href="https://media.makeameme.org/created/hyperlinks-hyperlinks-everywhere-f9db05fffb.jpg">Hyperlinks</a></strong>)
+                    that allow a
+                    user to navigate from one page to another. This connected "web" of information is the foundation of
+                    the World Wide Web.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>The Markup Problem:</strong> If you write plain text with a heading and a <a
+                href="https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fbdxd9pp4q93b1.jpg">paragraph</a> in a
+            file, a
+            browser will display it all on a single, messy line, ignoring your intended structure. The browser doesn't
+            inherently understand which part is a heading and which is a paragraph.
+            <ul>
+                <li><strong>Solution (A Markup Language):</strong> To solve this, we use a <strong>Markup
+                        Language</strong>. We <a href="https://en.wikipedia.org/wiki/Markup_language">"mark up"</a> our
+                    plain text by wrapping it in special instructions, called
+                    <strong><a href="https://www.educba.com/basic-html-tags/">Tags</a></strong>, that tell the browser
+                    the structure and semantic meaning of the content. This
+                    is the core idea behind <strong>HTML (HyperText Markup Language)</strong>.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>The Problem of a Place to Write Code</h3>
+    <img src="https://external-preview.redd.it/WnQeOGT-hfSgLvRiWNFz1esxzlW110puJJ1YjaGK5bQ.jpg?auto=webp&s=260fbaab807ab9bc99a152cd3ddad1516e5d238f"
+        alt="Messy, Frustrating Code">
+    <ul>
+        <li>
+            <strong>The Editor Problem:</strong> Where do we write our HTML code? A simple text editor lacks the
+            features needed for efficient development.
+            <ul>
+                <li><strong>Solution (A Code Editor):</strong> We use a specialized <strong>Code Editor</strong>, such
+                    as <strong>Visual Studio Code</strong>, which is designed for writing and managing code.</li>
+            </ul>
+        </li>
+        <img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxj7kCzMIlSC20SNjaJf9GmG15ocnF.zbBRgxMSlB7Ejh6FbgNzxLvZOoW7N3ML56fn3m5Z4MO.M8pYrCFVKIhqM-&format=source&h=307"
+            alt="VS CODE LOGO" width="200px">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8sRTNJBfJMkX9HclItSJUSFuAz1iqZ6CZOg&s"
+            alt="Live Server Logo" width="200px">
+        <img src="https://avatars.githubusercontent.com/u/25822731?s=280&v=4" alt="Prettier Logo" width="200px">
+        <li>
+            <strong>The Efficiency Problem:</strong> How can we streamline the development process to see our changes
+            instantly and keep our code clean?
+
+            <ul>
+                <li><strong>Solution (Editor Extensions):</strong> We install extensions to enhance our editor:
+                    <ul>
+                        <li><strong>Live Server:</strong> To automatically refresh the browser and show our changes the
+                            moment we save the file.</li>
+                        <li><strong>Prettier:</strong> To automatically format our code, ensuring it remains clean and
+                            readable.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>The Building Blocks of a Web Page: Core HTML Tags</h3>
+    <p>
+        HTML provides a set of tags to solve the most common structural problems when creating a document. An
+        <strong>HTML Element</strong> refers to the complete structure, from the opening tag to the closing tag,
+        including the content inside.
+    </p>
+
+    <h4>1. The Heading (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>)</h4>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231217130922/Screenshot-2023-12-17-130848.png"
+        alt="Headings in  HTML" width="400px">
+    <p><strong>The Problem:</strong> How do we define the main title and sub-topics of our page to create a clear,
+        logical hierarchy for users and search engines?.</p>
+    <p><strong>The Solution:</strong> We use heading tags from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.</p>
+    <ul>
+        <li><strong><code>&lt;h1&gt;</code></strong>: This is the most important heading, used for the main title of the
+            page. It should typically only be used <strong>once per page</strong>.</li>
+        <li><strong><code>&lt;h2&gt;</code> to <code>&lt;h6&gt;</code></strong>: These are used for sub-headings of
+            decreasing importance, creating a nested structure.</li>
+    </ul>
+    <p><strong>A Note on Importance vs. Size:</strong> The primary purpose of heading tags is to define <strong>semantic
+            importance</strong>, not just to control font size. <code>&lt;h1&gt;</code> tells a search engine what your
+        page is about, which is crucial for <strong>SEO (Search Engine Optimization)</strong>. The visual size is a
+        default style that can be changed later.</p>
+    <pre><code>&lt;h1&gt;This is the most important heading.&lt;/h1&gt;</code></pre>
+
+    <h4>2. The Paragraph (<code>&lt;p&gt;</code>)</h4>
+    <img src="https://www.teachucomp.com/wp-content/uploads/blog-7-22-2021-paragraphsinhtml.jpg" alt="HTML Paragraph"
+        width="500px">
+    <p><strong>The Problem:</strong> How do we group and display standard blocks of text?.</p>
+    <p><strong>The Solution:</strong> The <strong><code>&lt;p&gt;</code></strong> tag is used to define a distinct
+        paragraph of text. Browsers automatically add space before and after a <code>&lt;p&gt;</code> element.</p>
+    <pre><code>&lt;p&gt;This is a paragraph containing several sentences of text.&lt;/p&gt;</code></pre>
+
+    <h4>3. Separators (<code>&lt;hr&gt;</code> and <code>&lt;br&gt;</code>)</h4>
+    <img src="https://i.ytimg.com/vi/B1UCE3nfLww/maxresdefault.jpg" alt="HR and BR Tags" width="400px">
+    <p><strong>The Problem:</strong> How can we create a visual, thematic separation between sections, or force a line
+        break within a block of text?.</p>
+    <p><strong>The Solution:</strong></p>
+    <ul>
+        <li><strong><code>&lt;hr&gt;</code> (Horizontal Rule):</strong> Creates a thematic break, most often displayed
+            as a horizontal line across the page.</li>
+        <li><strong><code>&lt;br&gt;</code> (Line Break):</strong> Forces the content that follows it onto the next
+            line, like hitting the Enter key in a poem or address.</li>
+    </ul>
+    <pre><code>&lt;p&gt;First topic.&lt;/p&gt; &lt;hr /&gt; &lt;p&gt;Second topic starts here.&lt;br&gt;This is a new line.&lt;/p&gt;</code></pre>
+
+    <h4>4. List Elements (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>)</h4>
+    <img src="https://www.openbookproject.net/tutorials/getdown/html/screenshots/lesson4/learning_webdev_html.png"
+        alt="HTML Lists" width="300px">
+    <p><strong>The Problem:</strong> How do we present a series of related items, like ingredients for a recipe or steps
+        in a guide?.</p>
+    <p><strong>The Solution:</strong> We use list tags to structure this information.</p>
+    <ul>
+        <li><strong><code>&lt;ul&gt;</code> (Unordered List):</strong> Creates a bulleted list where the order of items
+            does not matter.</li>
+        <li><strong><code>&lt;ol&gt;</code> (Ordered List):</strong> Creates a numbered list where the sequence is
+            important.</li>
+        <li><strong><code>&lt;li&gt;</code> (List Item):</strong> For both list types, each individual item must be
+            wrapped in an <code>&lt;li&gt;</code> tag.</li>
+    </ul>
+    <pre><code>&lt;ul&gt;&lt;li&gt;Milk&lt;/li&gt;&lt;li&gt;Sugar&lt;/li&gt;&lt;/ul&gt;</code></pre>
+
+    <h4>5. The Anchor Tag (<code>&lt;a&gt;</code>)</h4>
+    <img src="https://www.monsterinsights.com/wp-content/uploads/2020/10/broken-link-chrome-browser-1-1024x449.png"
+        alt="HTML Hyperlinks" width="500px">
+    <p><strong>The Problem:</strong> How do we create the clickable hyperlinks that allow users to navigate between
+        pages?.</p>
+    <p><strong>The Solution:</strong> The <strong><code>&lt;a&gt;</code></strong> (Anchor) tag creates a hyperlink.</p>
+    <ul>
+        <li><strong>Attributes:</strong> This tag requires <strong>attributes</strong> to define its properties.
+            <ul>
+                <li><code>href</code> (hypertext reference): This is a mandatory attribute that specifies the
+                    destination URL.</li>
+                <li><code>target="_blank"</code>: An optional attribute that forces the link to open in a new browser
+                    tab instead of the current one.</li>
+            </ul>
+        </li>
+    </ul>
+    <pre><code>&lt;a href="https://www.coderarmy.in/" target="_blank"&gt;Visit Coder Army&lt;/a&gt;</code></pre>
+
+    <h4>6. The Image Tag (<code>&lt;img&gt;</code>)</h4>
+    <img src="https://cdo-curriculum.s3.amazonaws.com/media/uploads/img_tag.png" alt="Image Tag" width="700px">
+    <p><strong>The Problem:</strong> How do we display a visual image on our webpage?.</p>
+    <p><strong>The Solution:</strong> The <strong><code>&lt;img&gt;</code></strong> tag is used to embed an image. This
+        is a self-closing tag.</p>
+    <ul>
+        <li><strong>Attributes:</strong>
+            <ul>
+                <li><code>src</code> (source): A mandatory attribute that contains the URL or path to the image file.
+                </li>
+                <li><code>alt</code> (alternative text): Provides a text description of the image. This is crucial for
+                    accessibility, as screen readers read it for visually impaired users, and it's displayed if the
+                    image fails to load.</li>
+                <li><code>height</code> and <code>width</code>: Used to specify the dimensions of the image.</li>
+            </ul>
+        </li>
+    </ul>
+    <pre><code>&lt;img src="dog.jpg" height="200" width="200" alt="A photo of a cute dog"&gt;</code></pre>
+    <hr>
+    <a href="lecture1.html">&#9664;</a>
+    <a href="lecture3.html">&#9654;</a>
+    <hr>
+    <p>Sources: Internet. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+</body>
+
+</html>

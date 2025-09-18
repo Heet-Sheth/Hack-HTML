@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lecture 1: Internet Fundamentals</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th><a href="#"><img src="./lecture1.jpg" alt="Lecture 1 Thumbnail" width="70%"></a><br>
+                <h2>&dArr;</h2>
+            </th>
+            <td><a href="./lecture2.html"><img src="./lecture2.jpg" alt="Lecture 2 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture3.html"><img src="./lecture3.jpg" alt="Lecture 3 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture4.html"><img src="./lecture4.jpg" alt="Lecture 4 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture5.html"><img src="./lecture5.jpg" alt="Lecture 5 Thumbnail" width="80%"></a></td>
+            <td><a href="./lecture6.html"><img src="./lecture6.jpg" alt="Lecture 6 Thumbnail" width="80%"></a></td>
+            <td><a href="summary.html"><img src="HTML5_logo_and_wordmark.svg" alt="html logo" width="80%"></a></td>
+        </tr>
+    </table>
+    <hr>
+
+    <h1>Internet Basics</h1>
+
+    <iframe src="https://youtube.com/embed/1pcikNlDB-4?si=1ldZtXznCxpGbhRC" allowfullscreen height="400px"
+        width="600px"></iframe>
+
+    <hr>
+
+    <h3>Principle 1: The Need to Share Information &amp; The Problem of Scale</h3>
+    <img src="multiple.png" alt="connecting each computer with the others" width="400px">
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230511171149/Network-Switch-01-copy-660.webp"
+        alt="how a switch works" width="400px">
+    <img src="./Router.png" alt="Router" width="400px">
+    <p>
+        The most fundamental challenge is getting information from one computer to another.
+    </p>
+    <ul>
+        <li>
+            <strong>The Problem:</strong> How can we send data between two computers that are not in the same room?
+            <ul>
+                <li><strong>Initial Solution (Physical Transfer):</strong> The most basic method is to use a physical
+                    device like a pen drive to copy data from one machine and paste it onto another. This works, but
+                    it's manual, slow, and doesn't scale.</li>
+                <li><strong>A Better Solution (Direct Connection):</strong> A more efficient approach is to connect the
+                    two computers with a wire, like an Ethernet cable. This allows for direct, electronic data transfer.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>The Problem of Scale:</strong> A direct connection fails when you add many computers. Connecting
+            every machine to every other machine directly is physically impossible and requires too many ports.
+            <ul>
+                <li><strong>Solution 1 (The Local Network):</strong> To solve this, we use a central device called a
+                    <strong><a
+                            href="https://www.geeksforgeeks.org/computer-networks/what-is-a-network-switch-and-how-does-it-work/">Switch</a></strong>.
+                    All computers in a local area connect to this single switch,
+                    which forwards
+                    messages to the correct destination. This creates an efficient <strong><a
+                            href="https://www.geeksforgeeks.org/computer-networks/lan-full-form/">Local Area Network
+                            (LAN)</a></strong>.
+                </li>
+                <li><strong>Solution 2 (The Internet):</strong> To solve the problem of connecting different LANs (e.g.,
+                    one office network to another), we use a special device called a <strong><a
+                            href="https://www.geeksforgeeks.org/computer-networks/introduction-of-a-router/">Router</a></strong>.
+                    A router's
+                    job is to connect different networks and route traffic between them. The <strong>Internet</strong>
+                    is fundamentally a "network of networks"—millions of private and public LANs all connected by
+                    routers.</li>
+            </ul>
+        </li>
+    </ul>
+    <p><em></em></p>
+
+    <hr>
+
+    <h3>Principle 2: The Problem of Identity &amp; Addressing</h3>
+    <img src="./ip.png" alt="packet with sender and receiver ip address" width="400px">
+    <img src="./ipv4_vs_ipv6.png" alt="IPV4 vs IPV6" width="400px">
+    <p>
+        In a global web of millions of devices, we need a universal addressing system to find a specific computer. This
+        led to the creation of several types of addresses, each solving a unique problem.
+    </p>
+
+    <h4><a href="https://www.geeksforgeeks.org/computer-science-fundamentals/what-is-an-ip-address/">IP Address</a> (The
+        "Where To" Address)</h4>
+    <ul>
+        <li><strong>The Problem:</strong> How do we send a message to a specific device among millions? We need a unique
+            address for every device on the network.</li>
+        <li><strong>The Solution:</strong> The <strong>IP (Internet Protocol) Address</strong>. It’s a unique numerical
+            label assigned to each device, allowing data to be routed to it. There are two versions:
+            <ul>
+                <li><strong><a href="https://www.geeksforgeeks.org/computer-networks/what-is-ipv4/">IPv4</a></strong>:
+                    The classic format, which is a <strong>32-bit</strong> number written as four
+                    decimal numbers separated by dots (e.g., <code>192.168.1.8</code>). This system is limited to about
+                    <strong>4.3 billion</strong> unique addresses. We have run out of available IPv4 addresses because
+                    the number of internet-connected devices far exceeds this limit.
+                </li>
+                <li><strong><a href="https://www.geeksforgeeks.org/computer-networks/what-is-ipv6/">IPv6</a></strong>:
+                    The next generation, created to solve the address shortage. It is a
+                    <strong>128-bit</strong> number written in hexadecimal format (e.g.,
+                    <code>2001:0db8:85a3::8a2e:0370:7334</code>). This provides a virtually inexhaustible number of
+                    addresses (340 undecillion).
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Public vs. Private IP Addresses</h4>
+    <img src="./privateIP.png" alt="Private and Public IP address" width="600px">
+    <ul>
+        <li><strong>The Problem:</strong> The shortage of IPv4 addresses meant we couldn't give a unique, global address
+            to every single device.</li>
+        <li><strong>The Solution:</strong> A clever workaround was to create two types of IP addresses.
+            <ul>
+                <li><strong><a href="https://www.geeksforgeeks.org/computer-networks/what-is-public-ip-address/">Public
+                            IP</a>:</strong> A globally unique address assigned to your network's router by your
+                    Internet Service Provider (ISP). Think of this as your company's main, public phone number. It must
+                    be unique across the entire internet.</li>
+                <li><strong><a
+                            href="https://www.geeksforgeeks.org/computer-networks/private-ip-addresses-in-networking/">Private
+                            IP</a>:</strong> A local-only address used within your private network (e.g., your home
+                    Wi-Fi). Think of this as an employee's internal 4-digit extension number. These addresses only need
+                    to be unique on your local network and are reused in millions of other homes and offices. The most
+                    common range for home networks is <code>192.168.0.0</code> to <code>192.168.255.255</code>.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4><a href="https://www.geeksforgeeks.org/computer-networks/mac-address-in-computer-network/">MAC Address</a> (The
+        "Who Exactly" Address)</h4>
+    <img src="./mac.png" alt="macc address included in the packets" width="600px">
+    <ul>
+        <li><strong>The Problem:</strong> IP addresses are often temporary and dynamic; they can be taken away when you
+            disconnect and reassigned to someone else. This creates a massive security flaw: if a server's reply is
+            delayed, your sensitive data could be sent to a different device that was assigned your old IP address.</li>
+        <li><strong>The Solution:</strong> The <strong>MAC (Media Access Control) Address</strong>. It is a
+            <strong>permanent, 48-bit</strong> physical serial number burned into a device's network hardware by the
+            manufacturer. It cannot be changed or taken away.
+            <ul>
+                <li><strong>Function:</strong> Data packets include both the IP and MAC addresses. This ensures that
+                    even if an IP is reassigned, the data is only delivered to the device with the correct, matching MAC
+                    address, preventing misdelivery.</li>
+                <li><strong>Multiple MAC Addresses:</strong> A single device has multiple MAC addresses—one for each way
+                    it can transfer data (e.g., Wi-Fi, Ethernet, Bluetooth, AirDrop).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4><a href="https://www.geeksforgeeks.org/computer-networks/what-is-ports-in-networking/">Port Numbers </a> (The
+        "Which App" Address)</h4>
+    <img src="./port.png" alt="port address is also included" width="600px">
+    <ul>
+        <li><strong>The Problem:</strong> Data arrives at the correct computer (thanks to IP and MAC), but the computer
+            is running multiple applications (e.g., browser tabs for YouTube, Instagram, etc.). How does the device know
+            which specific application should receive the data?.</li>
+        <li><strong>The Solution:</strong> The <strong>Port Number</strong>. It's a numerical identifier that directs
+            network traffic to the correct service on a machine. It is a <strong>16-bit unsigned integer</strong>,
+            ranging from 0 to 65535.
+            <ul>
+                <li><strong>Well-Known Ports (0-1023):</strong> Reserved for standard services like <strong>HTTP (port
+                        80)</strong> and <strong>HTTPS (port 443)</strong>.</li>
+                <li><strong>Registered Ports (1024-49151):</strong> For specific applications, like <strong>MongoDB
+                        (port 27017)</strong>.</li>
+                <li><strong>Dynamic/Ephemeral Ports (49152-65535):</strong> Used for temporary, client-side connections,
+                    like when your browser makes a request.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>Principle 3: Using Names Instead of Numbers</h3>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250305144138434598/dns-image.png"
+        alt="working of a DNS" width="600px">
+    <ul>
+        <li><strong>The Problem:</strong> Humans are good at remembering names (like <code>google.com</code>) but bad at
+            remembering long strings of numbers (IP addresses). We need a system to translate the names we use into the
+            addresses computers need.</li>
+        <li><strong>The Solution:</strong> The <strong><a
+                    href="https://www.geeksforgeeks.org/computer-networks/domain-name-system-dns-in-application-layer/">DNS
+                    (Domain Name System)</a></strong>. It acts like the phonebook of
+            the internet, translating human-friendly domain names into computer-friendly IP addresses.</li>
+        <li><strong>The DNS Lookup Process:</strong> When you type a domain name, your computer follows a hierarchical
+            search to find the IP address:
+            <ol>
+                <li><strong>Local Cache:</strong> First, your computer checks its own cache (browser, OS) to see if it
+                    already knows the IP.</li>
+                <li><strong>Recursive Resolver:</strong> If not found locally, it asks a DNS Resolver (usually from your
+                    ISP). This server promises to do all the work to find the final answer.</li>
+                <li><strong>Root Server:</strong> The resolver asks one of the 13 logical Root Servers, which points it
+                    to the correct server for the top-level domain (like <code>.com</code>).</li>
+                <li><strong>TLD Server:</strong> The resolver then asks the Top-Level Domain (TLD) server (e.g., the
+                    <code>.com</code> server), which points it to the server that is the final authority for that
+                    specific domain.
+                </li>
+                <li><strong>Authoritative Name Server:</strong> Finally, the resolver asks the domain's Authoritative
+                    Name Server, which holds the actual IP address and provides the final answer.</li>
+                <li><strong>Response:</strong> The answer travels back to your computer, getting cached along the way to
+                    speed up future requests.</li>
+            </ol>
+        </li>
+    </ul>
+    <hr>
+    <a href="index.html">&#9664;</a>
+    <a href="lecture2.html">&#9654;</a>
+    <hr>
+    <p>Sources: <a href="https://www.coderarmy.in/">CoderArmy</a> and <a
+            href="https://www.geeksforgeeks.org/">GeeksForGeeks</a>. All
+        copyrights &copy; reserved <a href="https://x.com/HeetSheth15">#DarkProgrammer</a>, Let's connect.</p>
+
+</body>
+
+</html>
